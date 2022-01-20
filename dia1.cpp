@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-	string palabra;
+	string palabra, palabra1, palabra2;
 	int numero;
 	int numero1 = 1;
 	int numero2 = 2, numero3 = 3;
@@ -11,12 +11,23 @@ int main(){
 	char letra;
 	bool booleano;
 
-	/*// Jugamos con palabra
-	palabra = "perro";
+	/// Jugamos con palabra
+	palabra1 = "perro";
+	cout << palabra1 << endl;
+	palabra2 = "verde";
+	cout << palabra2 << endl;
+	cout << palabra1 + " " + palabra2 << endl;
+	cout << palabra1 << " " << palabra2 << endl;
+	//palabra = palabra1.append(palabra2);
+	palabra1.append(palabra2);
 	cout << palabra << endl;
-	palabra = "casa";
+	cout << palabra1 << endl;
+	palabra = "nada";
+	palabra = palabra + " " + palabra2;
 	cout << palabra << endl;
-	*/
+
+
+
 	/*//Jugamos con número
 	cout << numero1 << endl;
 	cout << numero2 << endl << numero3 << endl;
@@ -62,7 +73,7 @@ int main(){
 	cout << booleano << endl;
 	*/
 
-	//Jugar con operadores:
+	/*//Jugar con operadores:
 	numero1 = 4 + 5;
 	cout << numero1 << endl;
 	numero1 = 4 - 5;
@@ -95,6 +106,7 @@ int main(){
 	cout << numero1 << endl;
 	--numero1;
 	cout << numero1 << endl;
+	*/
 
 	return 0;
 }
