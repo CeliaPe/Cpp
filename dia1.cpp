@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main(){
@@ -26,7 +27,24 @@ int main(){
 	palabra = palabra + " " + palabra2;
 	cout << palabra << endl;
 
+	int xint, yint;
+	string  xstr, ystr;
+	xint = 10;
+	yint = 20;
+	xstr = "10";
+	ystr = "20";
+	cout << "Se imprime el xint: " << xint << endl;
+	cout << "Se imprime el xsrt: " << xstr << endl;
+	cout << "int x+y = " << xint + yint << endl;
+	cout << "str x+y = " << xstr + ystr << endl;
+	cout << "xstr + to_string(yint) = " << xstr + to_string(yint) << endl;
+	cout << "stoi(xstr) + yint = " << stoi(xstr) + yint << endl;
+	cout << "yint + stoi(xstr) = " << yint + stoi(xstr) << endl;
 
+	cout << palabra << endl;
+	cout << "La palabra tiene " << palabra.length() << " letras." << endl;
+	cout << "La palabra tiene " << palabra.size() << " letras." << endl;
+	cout << "La primera letra de palabra es: " << palabra[0];
 
 	/*//Jugamos con número
 	cout << numero1 << endl;
