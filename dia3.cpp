@@ -21,8 +21,9 @@ void imprimirArray(int array[20], int tama){
 }
 
 int main(){
-  int numJuegos = 100;
-  string juegos[numJuegos];
+  int num = 10;
+  string juegos[num];
+  int numeros[num];
 
   int numero1 = 2;
   int numero2 = 0;
@@ -60,7 +61,7 @@ int main(){
   imprimirArray(notas,3);
   */
 
-  cout << sizeof(juegos) << endl;
+  cout << sizeof(numeros) << endl;
 
 
 
