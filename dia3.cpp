@@ -14,9 +14,21 @@ void subirNota (int notas[3] , int posicion , int nuevaNota){
   notas[posicion] = nuevaNota;
 }
 
-void imprimirArray(int array[20], int tama){
+void imprimirArray(int array[], int tama){
   for (int i = 0 ; i < tama ; i++){
     cout << array[i] << endl;
+  }
+}
+
+void rellenarArray (int nume[], int tama){
+  for (int i = 0 ; i < tama ; i++){
+    nume[i] = i;
+  }
+}
+
+void sumarDe4en4(int nume[], int tama, int sumaNum[]){
+  for (int i = 0 ; i < tama ; i+=4){
+    sumaNum[i/4] = i + i+1 + i+2 + i+3;
   }
 }
 
@@ -61,8 +73,30 @@ int main(){
   imprimirArray(notas,3);
   */
 
-  cout << sizeof(numeros) << endl;
+  //cout << sizeof(numeros) << endl;
 
+  // EJERCICIO
+
+  int tama = 100;
+  int nume[tama];
+  int sumaNum[tama/4];
+  cout <<  "Rellenamos el array con los 100 primeros números." << endl;
+  rellenarArray (nume, tama);
+  cout <<  "Sumamos de 4 en 4." << endl;
+  sumarDe4en4(nume, tama, sumaNum);
+  /*cout << "Otra forma de hacerlo [F]" << endl;
+  int suma = 0;
+  int contador = 0;
+  for (int i = 0 ; i < tama ; i++){
+    suma += i;
+    contador ++;
+    if (contador % 4 == 0){
+      sumaNum[i/4] = suma;
+      suma = 0;
+    }
+  }*/
+  cout <<  "Imprimimos" << endl;
+  imprimirArray(sumaNum,tama/4);
 
 
 
