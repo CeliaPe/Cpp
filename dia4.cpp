@@ -16,9 +16,37 @@ int suma10 (int* ptrNum){
 
 
 int main() {
-  
-  //// Segunda parte
+  //// Tercera parte
 
+  string* colores = NULL;
+  string line;
+  int numero;
+
+  cout << "Valor de *colores = NULL: " << colores << endl;
+  cout << "Numero de colores: " ;
+  //cin >> numero;
+  getline(cin,line);
+  numero = stoi(line);
+
+  colores = new string[numero];
+  cout << "Valor de colores = new string[]:  " << colores << endl;
+
+  for (int i = 0 ; i < numero ; i++){
+    cout << "Introduce un color" << endl;
+    //cin >> colores[i];
+    getline(cin,colores[i]);
+  }
+
+  for (int i = 0 ; i < numero ; i++){
+    cout << colores[i] << " " << endl;
+  }
+
+  delete [] colores;
+  colores = NULL;
+
+
+  //// Segunda parte
+  /*
   int numero = 10;
   int resultado;
 
@@ -31,7 +59,7 @@ int main() {
   resultado = suma10(&numero);
   cout << "Imprimir numero depues de sumar10(*int): " << numero << endl;
   cout << "Imprimir resultado depues de sumar10(*int): " << resultado << endl;
-
+  */
 
   //// Primera parte
 
