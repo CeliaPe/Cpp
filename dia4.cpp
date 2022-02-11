@@ -13,6 +13,18 @@ int suma10 (int* ptrNum){
   return *ptrNum;
 }
 
+void rellenarArray (string* array, int tama){
+  for (int i = 0 ; i < tama ; i++){
+    cout << "Introduce un color" << endl;
+    getline(cin,array[i]);
+  }
+}
+
+void imprimirArray(string* array, int tama){
+  for (int i = 0 ; i < tama ; i++){
+    cout << array[i] << " " << endl;
+  }
+}
 
 
 int main() {
@@ -22,28 +34,22 @@ int main() {
   string line;
   int numero;
 
-  cout << "Valor de *colores = NULL: " << colores << endl;
+  //cout << "Valor de *colores = NULL: " << colores << endl;
   cout << "Numero de colores: " ;
   //cin >> numero;
   getline(cin,line);
   numero = stoi(line);
 
   colores = new string[numero];
-  cout << "Valor de colores = new string[]:  " << colores << endl;
+  //cout << "Valor de colores = new string[]:  " << colores << endl;
 
-  for (int i = 0 ; i < numero ; i++){
-    cout << "Introduce un color" << endl;
-    //cin >> colores[i];
-    getline(cin,colores[i]);
-  }
+  rellenarArray(colores, numero);
+  imprimirArray(colores, numero);
 
-  for (int i = 0 ; i < numero ; i++){
-    cout << colores[i] << " " << endl;
-  }
+
 
   delete [] colores;
   colores = NULL;
-
 
   //// Segunda parte
   /*
