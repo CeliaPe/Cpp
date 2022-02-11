@@ -13,11 +13,13 @@ int suma10 (int* ptrNum){
   return *ptrNum;
 }
 
-void rellenarArray (string* array, int tama){
+string* rellenarArray (int tama){
+  string* array = new string [tama];
   for (int i = 0 ; i < tama ; i++){
     cout << "Introduce un color" << endl;
     getline(cin,array[i]);
   }
+  return array;
 }
 
 void imprimirArray(string* array, int tama){
@@ -43,7 +45,7 @@ int main() {
   colores = new string[numero];
   //cout << "Valor de colores = new string[]:  " << colores << endl;
 
-  rellenarArray(colores, numero);
+  colores = rellenarArray(numero);
   imprimirArray(colores, numero);
 
 
