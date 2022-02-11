@@ -18,7 +18,7 @@ double* rellenarArrayNotas (int tama){
   for (int i = 0 ; i < tama ; i++){
     cout << "Introduce una nota: ";
     getline(cin,line);
-    array[i] = stoi(line);
+    array[i] = stod(line);
   }
   return array;
 }
