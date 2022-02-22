@@ -67,12 +67,13 @@ int posMinimoLista(int* ptrLista, int tama){
 int* ordenarLista (int* ptrLista, int tama){
   int* ptrCopiaLista = copiarLista(ptrLista,tama);
   int* ptrOrdenadaLista = new int[tama];
-  int tamaMax = 20;
+  int nuevoTama = tama;
   int posicionMin;
   for (int i = 0 ; i < tama ; i++){
-    posicionMin = posMinimoLista(ptrCopiaLista,tama);
+    posicionMin = posMinimoLista(ptrCopiaLista,nuevoTama);
     ptrOrdenadaLista[i] = ptrCopiaLista[posicionMin];
-    ptrCopiaLista[posicionMin] = tamaMax;
+    //Es posicionMin+1 porque la funcion eliminarPosicionLista está pensada como si las posiciones fueran ordinales.
+    nuevoTama = eliminarPosicionLista(ptrCopiaLista,nuevoTama,posicionMin+1);
   }
   return ptrOrdenadaLista;
 }
