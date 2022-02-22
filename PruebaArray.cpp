@@ -77,6 +77,28 @@ int* ordenarLista (int* ptrLista, int tama){
   }
   return ptrOrdenadaLista;
 }
+bool estaEnLista(int* ptrLista, int tama, int elemento){
+  bool esta = false;
+  for (int i = 0 ; i < tama && !esta ; i++){
+    if (ptrLista[i] == elemento) esta = true;
+  }
+  return esta;
+}
+int* listaSinRepetidos (int* ptrLista, int tama){
+  int* ptrSinRepetidosLista = new int[tama];
+  int tamaSin = 0;
+  for (int i = 0 ; i < tama ; i++){ // Recorro la lista inicial.
+    for (int j = 0 ; j < tamaSin+1 ; j++){ //Para cada elemento de la inicial compruebo si está en la nueva.
+      // ¿Está el elmento ptrLista[i] en ptrSinRepetidosLista? -> Función!
+      // Si no está lo añado.
+      if (!estaEnLista(ptrSinRepetidosLista,tamaSin+1,ptrLista[i])){
+        ptrSinRepetidosLista[j] = ptrLista[i];
+        tamaSin++;
+      }
+    }
+  }
+  return ptrSinRepetidosLista;
+}
 
 int main(){
 
@@ -104,6 +126,9 @@ int main(){
   imprimirLista(ptrArray1,tama);
   cout << "Lista ordenada: ";
   ptrArray3 = ordenarLista(ptrArray1,tama);
+  imprimirLista(ptrArray3,tama);
+  cout << "Lista sin repetidos: ";
+  ptrArray3 = listaSinRepetidos(ptrArray1,tama);
   imprimirLista(ptrArray3,tama);
   return 0;
 }
