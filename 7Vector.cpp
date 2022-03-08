@@ -8,7 +8,7 @@ void mostrarVector (vector<int> vector){
   for (i = 0 ; i < vector.size()-1 ; i++){
     cout << vector[i] << ", "; //vector.at(i)
   }
-  cout << vector[i] << "]";
+  cout << vector[i] << "]" << endl;
 }
 
 vector<int> rellenarVector(){
@@ -25,6 +25,11 @@ vector<int> rellenarVector(){
   return vector;
 }
 
+vector<int> insertar (vector<int> vect, int posicion, int numero){
+  vect.insert(vect.begin()+posicion,numero);
+  return vect;
+}
+
 int main(){
   vector<int> miVector1;                    // Sin inicializar
   vector<string> miVectorS;                 // Sin inicializar
@@ -36,6 +41,9 @@ int main(){
   cout << miVectorS[0] << endl;
 
   miVector2 = rellenarVector();
+  mostrarVector(miVector2);
+
+  miVector2 = insertar(miVector2,0,20);
   mostrarVector(miVector2);
 
 

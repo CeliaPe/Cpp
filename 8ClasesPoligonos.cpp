@@ -17,7 +17,7 @@ class Triangulo{
       return (perimetro-max > max);
     }
   public:
-    Triangulo(double ladoA, double ladoB, double ladoC, string color = "azul"){
+    Triangulo(double ladoA = 0 , double ladoB = 0 , double ladoC = 0, string color = "azul"){
       this->ladoA = 2;
       this->ladoB = 2;
       this->ladoC = 2;
@@ -74,7 +74,7 @@ class Triangulo{
 
 
 int main(){
-  Triangulo t(2,2,40);
+  Triangulo t;
   t.setLadoA(3);
   t.setLadoB(3);
   t.setLadoC(3);
