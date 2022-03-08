@@ -82,11 +82,24 @@ class Triangulo{
       double area = sqrt(sPer*(sPer-this->ladoA)*(sPer-this->ladoB)*(sPer-this->ladoC));
       return area;
     }
-    void imprimir(){
+    void imprimirLados(){
       cout << "Los lados del triangulo miden: " << this->ladoA << " " << this->ladoB << " " << this->ladoC << "." << endl;
-      cout << "Su perimetro es: " << this->perimetro() << "m." << endl;
-      cout << "Su area es: " << this->area() << "m^2." << endl;
+    }
+    void imprimirColor(){
       cout << "Su color es: " << this->color << "." << endl;
+    }
+    void imprimirPerimetro(){
+      cout << "Su perimetro es: " << this->perimetro() << "m." << endl;
+    }
+    void imprimirArea(){
+      cout << "Su area es: " << this->area() << "m^2." << endl;
+    }
+    
+    void imprimir(){
+      this->imprimirLados();
+      this->imprimirPerimetro();
+      this->imprimirArea();
+      this->imprimirColor();
     }
 };
 
