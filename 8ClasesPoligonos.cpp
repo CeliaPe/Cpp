@@ -67,8 +67,12 @@ class Triangulo{
         if (ladoC > 0) this->ladoC = ladoC;
       }
     }
+    double perimetro(){
+      return this->ladoA + this->ladoB + this->ladoC;
+    }
     void imprimir(){
       cout << "Los lados del triangulo miden: " << this->ladoA << " " << this->ladoB << " " << this->ladoC << "." << endl;
+      cout << "Su perimetro es: " << this->perimetro() << "m" << endl;
     }
 };
 
@@ -78,6 +82,7 @@ int main(){
   t.setLadoA(3);
   t.setLadoB(3);
   t.setLadoC(3);
+  t.setLados(10,15,20);
   t.imprimir();
   return 0;
 }
