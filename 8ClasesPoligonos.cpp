@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 // Class Triángulo
@@ -70,9 +71,15 @@ class Triangulo{
     double perimetro(){
       return this->ladoA + this->ladoB + this->ladoC;
     }
+    double area(){
+      double sPer = this->perimetro()/2;
+      double area = sqrt(sPer*(sPer-this->ladoA)*(sPer-this->ladoB)*(sPer-this->ladoC));
+      return area;
+    }
     void imprimir(){
       cout << "Los lados del triangulo miden: " << this->ladoA << " " << this->ladoB << " " << this->ladoC << "." << endl;
-      cout << "Su perimetro es: " << this->perimetro() << "m" << endl;
+      cout << "Su perimetro es: " << this->perimetro() << "m." << endl;
+      cout << "Su area es: " << this->area() << "m^2." << endl;
     }
 };
 
