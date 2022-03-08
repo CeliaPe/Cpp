@@ -52,6 +52,9 @@ class Triangulo{
         if (lado > 0) this->ladoC = lado;
       }
     }
+    void setColor(string color){
+      this->color = color;
+    }
     double getLadoA(){
       return this->ladoA;
     }
@@ -60,6 +63,9 @@ class Triangulo{
     }
     double getLadoC(){
       return this->ladoC;
+    }
+    string getColor(){
+      return this->color;
     }
     void setLados(double ladoA , double ladoB , double ladoC){
       if (comprobarLongitudLados(ladoA,ladoB,ladoC)){
@@ -80,6 +86,7 @@ class Triangulo{
       cout << "Los lados del triangulo miden: " << this->ladoA << " " << this->ladoB << " " << this->ladoC << "." << endl;
       cout << "Su perimetro es: " << this->perimetro() << "m." << endl;
       cout << "Su area es: " << this->area() << "m^2." << endl;
+      cout << "Su color es: " << this->color << "." << endl;
     }
 };
 
@@ -90,6 +97,7 @@ int main(){
   t.setLadoB(3);
   t.setLadoC(3);
   t.setLados(10,15,20);
+  t.setColor("amarillo");
   t.imprimir();
   return 0;
 }
