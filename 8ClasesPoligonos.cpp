@@ -17,17 +17,24 @@ class Triangulo{
       return (perimetro-max > max);
     }
   public:
-    Triangulo(double ladoA = 2, double ladoB = 2, double ladoC = 2, string color = "azul"){
-      if (comprobarLongitudLados(ladoA,ladoB,ladoC)){
-        if (ladoA > 0) this->ladoA = ladoA;
-        if (ladoB > 0) this->ladoB = ladoB;
-        if (ladoC > 0) this->ladoC = ladoC;
-      } else {
-        this->ladoA = 2;
-        this->ladoB = 2;
-        this->ladoC = 2;
-      }
+    Triangulo(double ladoA, double ladoB, double ladoC, string color = "azul"){
+      this->ladoA = 2;
+      this->ladoB = 2;
+      this->ladoC = 2;
+      setLados (ladoA,ladoB,ladoC);
       this->color = color;
+
+      //Otra forma de hacerlo
+      //if (comprobarLongitudLados(ladoA,ladoB,ladoC)){
+      //  if (ladoA > 0) this->ladoA = ladoA;
+      //  if (ladoB > 0) this->ladoB = ladoB;
+      //  if (ladoC > 0) this->ladoC = ladoC;
+      //} else {
+      //  this->ladoA = 2;
+      //  this->ladoB = 2;
+      // this->ladoC = 2;
+      //}
+      //this->color = color;
     }
     void setLadoA(double lado){
       if (comprobarLongitudLados(lado,this->ladoB,this->ladoC)){
@@ -42,6 +49,22 @@ class Triangulo{
     void setLadoC(double lado){
       if (comprobarLongitudLados(this->ladoA,this->ladoB,lado)){
         if (lado > 0) this->ladoC = lado;
+      }
+    }
+    double getLadoA(){
+      return this->ladoA;
+    }
+    double getLadoB(){
+      return this->ladoB;
+    }
+    double getLadoC(){
+      return this->ladoC;
+    }
+    void setLados(double ladoA , double ladoB , double ladoC){
+      if (comprobarLongitudLados(ladoA,ladoB,ladoC)){
+        if (ladoA > 0) this->ladoA = ladoA;
+        if (ladoB > 0) this->ladoB = ladoB;
+        if (ladoC > 0) this->ladoC = ladoC;
       }
     }
     void imprimir(){
