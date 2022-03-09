@@ -113,12 +113,40 @@ class Poligono{
     void setLados (vector <double> lados){
       this->lados = lados;
     }
-    void cambiarLado(int pos, double lado){
+    vector <double> getLados(){
+      return this->lados;
+    }
+    void setPosLado(int pos, double lado){
       // Comprobar que pos < numero de lados.
       if (pos < this->numeroLados()) this->lados[pos] = lado;
     }
+    double getPosLado(int pos){
+      return this->lados[pos];
+    }
     int numeroLados(){
       return this->lados.size();
+    }
+    double perimetro(){
+      double suma = 0;
+      for (double elemento : this->lados){
+        suma += elemento;
+      }
+      return suma;
+    }
+    double ladoMaximo(){
+      int pos = posicionNumMayor():
+      return getPosLado(pos);
+    }
+    int posicionNumMayor(){
+      double max = this->lados[0];
+      int posicion = 0;
+      for (int i = 1 ; i < this->lados.size() ; i++){
+        if (lados[i] > max){
+           max = this->lados[i];
+           posicion = i;
+        }
+      }
+      return posicion;
     }
     void imprimir(){
       for (double elemento : this->lados){
@@ -135,7 +163,7 @@ int main(){
   triangulo.imprimir();
   triangulo.setLados(ladosTriangulo);
   triangulo.imprimir();
-  triangulo.cambiarLado(0,15);
+  triangulo.setPosLado(0,15);
   triangulo.imprimir();
   cout << triangulo.numeroLados();
 
