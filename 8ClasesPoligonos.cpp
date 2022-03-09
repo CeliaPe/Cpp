@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include <vector>
 using namespace std;
 
 // Class Triángulo
@@ -24,7 +25,6 @@ class Triangulo{
       this->ladoC = 2;
       setLados (ladoA,ladoB,ladoC);
       this->color = color;
-
       //Otra forma de hacerlo
       //if (comprobarLongitudLados(ladoA,ladoB,ladoC)){
       //  if (ladoA > 0) this->ladoA = ladoA;
@@ -94,7 +94,7 @@ class Triangulo{
     void imprimirArea(){
       cout << "Su area es: " << this->area() << "m^2." << endl;
     }
-    
+
     void imprimir(){
       this->imprimirLados();
       this->imprimirPerimetro();
@@ -102,15 +102,32 @@ class Triangulo{
       this->imprimirColor();
     }
 };
-
+class Poligono{
+  private:
+    vector <double> lados;
+  public:
+    Poligono(vector <double> lados){
+      this->lados = lados;
+    }
+    void imprimir(){
+      for (double elemento : this->lados){
+        cout << elemento << endl;
+      }
+    }
+};
 
 int main(){
-  Triangulo t;
+  vector <double> ladosTriangulo = {10,15,20};
+  Poligono triangulo(ladosTriangulo);
+  triangulo.imprimir();
+
+
+  /*Triangulo t;
   t.setLadoA(3);
   t.setLadoB(3);
   t.setLadoC(3);
   t.setLados(10,15,20);
   t.setColor("amarillo");
-  t.imprimir();
+  t.imprimir();*/
   return 0;
 }
