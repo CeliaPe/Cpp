@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-// Class Triángulo
+// Class Triangulo
 class Triangulo{
   private:
     double ladoA;
@@ -102,23 +102,40 @@ class Triangulo{
       this->imprimirColor();
     }
 };
+// Class Poligono
 class Poligono{
   private:
     vector <double> lados;
   public:
-    Poligono(vector <double> lados){
+    Poligono(vector <double> lados = {10,10,10,10}){
+      setLados(lados);
+    }
+    void setLados (vector <double> lados){
       this->lados = lados;
+    }
+    void cambiarLado(int pos, double lado){
+      // Comprobar que pos < numero de lados.
+      if (pos < this->numeroLados()) this->lados[pos] = lado;
+    }
+    int numeroLados(){
+      return this->lados.size();
     }
     void imprimir(){
       for (double elemento : this->lados){
         cout << elemento << endl;
       }
+      cout << endl;
     }
 };
 
 int main(){
   vector <double> ladosTriangulo = {10,15,20};
-  Poligono triangulo(ladosTriangulo);
+  Poligono triangulo;
+
+  triangulo.imprimir();
+  triangulo.setLados(ladosTriangulo);
+  triangulo.imprimir();
+  triangulo.cambiarLado(0,15);
   triangulo.imprimir();
 
 
