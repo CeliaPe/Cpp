@@ -137,7 +137,7 @@ int main(){
   triangulo.imprimir();
   triangulo.cambiarLado(0,15);
   triangulo.imprimir();
-
+  cout << triangulo.numeroLados();
 
   /*Triangulo t;
   t.setLadoA(3);
