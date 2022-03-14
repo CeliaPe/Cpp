@@ -41,16 +41,19 @@ class Ventana{
     }
   public:
     Ventana(){
-      this->estado = false; // Estan cerradas.
+      this->estado = false; // Esta cerrada.
     }
     bool getEstado (){
       return this->estado;
     }
     void cerrarVentana(){
       this->setEstado(false);
+      cout << "Cierro la ventana" << endl;
     }
     void abrirVentana(){
       this->setEstado(true);
+      cout << "Abro la ventana" << endl;
+      cout << "el valor de ventanilla en abroVentana es " << this->estado << endl;
     }
     void imprimir(){
       if (this->estado){
@@ -66,6 +69,37 @@ class Puerta{
   private:
     bool estado;
     Ventana ventanilla;
+  private:
+    void setEstado(bool estado){
+      this->estado = estado;
+    }
+  public:
+    Puerta(){
+      this->estado = false;
+    }
+    bool getEstado (){
+      return this->estado;
+    }
+    Ventana getVentanilla(){
+      cout << "el valor de ventanilla en getVentanilla es " << ventanilla.getEstado() << endl;
+      return this->ventanilla;
+    }
+    void cerrarPuerta(){
+      this->setEstado(false);
+    }
+    void abrirPuerta(){
+      this->setEstado(true);
+    }
+    void imprimir(){
+      if (this->estado){
+        cout << "La puerta esta abierta.";
+      } else {
+        cout << "La puerta esta cerrada.";
+      }
+      cout << endl;
+      cout << this->ventanilla.getEstado();
+      this->ventanilla.imprimir();
+    }
 };
 
 int main(){
@@ -75,13 +109,24 @@ int main(){
   miMotor.imprimir();
   miMotor.apagar();
   miMotor.imprimir();
-
+  cout << "---------------------------------" << endl;
   Ventana miVentana;
   miVentana.imprimir();
   miVentana.abrirVentana();
   miVentana.imprimir();
   miVentana.cerrarVentana();
   miVentana.imprimir();
-
+  cout << "---------------------------------" << endl;
+  Puerta miPuerta;
+  miPuerta.imprimir();
+  miPuerta.abrirPuerta();
+  miPuerta.imprimir();
+  miPuerta.cerrarPuerta();
+  miPuerta.imprimir();
+  cout << "---------------------------------" << endl;
+  miPuerta.getVentanilla().getEstado();
+  miPuerta.getVentanilla().abrirVentana();
+  miPuerta.getVentanilla().getEstado();
+  miPuerta.getVentanilla().imprimir();
   return 0;
 }
