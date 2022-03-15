@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// CONCEPTO: Herencia por composición o agragación. 
+
 class Motor{
   private:
     bool estado;
@@ -48,12 +50,9 @@ class Ventana{
     }
     void cerrarVentana(){
       this->setEstado(false);
-      cout << "Cierro la ventana" << endl;
     }
     void abrirVentana(){
       this->setEstado(true);
-      cout << "Abro la ventana" << endl;
-      cout << "el valor de ventanilla en abroVentana es " << this->estado << endl;
     }
     void imprimir(){
       if (this->estado){
@@ -80,8 +79,7 @@ class Puerta{
     bool getEstado (){
       return this->estado;
     }
-    Ventana getVentanilla(){
-      cout << "el valor de ventanilla en getVentanilla es " << ventanilla.getEstado() << endl;
+    Ventana & getVentanilla(){
       return this->ventanilla;
     }
     void cerrarPuerta(){
@@ -97,8 +95,52 @@ class Puerta{
         cout << "La puerta esta cerrada.";
       }
       cout << endl;
-      cout << this->ventanilla.getEstado();
       this->ventanilla.imprimir();
+    }
+};
+
+class Coche{
+  private:
+    bool estado;
+    Puerta puertaDer;
+    Puerta puertaIzq;
+    Motor motor;
+  private:
+    void setEstado(bool estado){
+      this->estado = estado;
+    }
+  public:
+    Coche(){
+      this->estado = false; // Coche cerrado
+    }
+    bool getEstado (){
+      return this->estado;
+    }
+    Puerta & getPuertaDer(){
+      return this->puertaDer;
+    }
+    Puerta & getPuertaIzq(){
+      return this->puertaIzq;
+    }
+    Motor & getMotor(){
+      return this->motor;
+    }
+    void cerrarCoche(){
+      this->setEstado(false);
+    }
+    void abrirCoche(){
+      this->setEstado(true);
+    }
+    void imprimir(){
+      if (this->estado){
+        cout << "El coche esta abierto.";
+      } else {
+        cout << "El coche esta cerrado.";
+      }
+      cout << endl;
+      this->puertaDer.imprimir();
+      this->puertaIzq.imprimir();
+      this->motor.imprimir();
     }
 };
 
@@ -124,9 +166,17 @@ int main(){
   miPuerta.cerrarPuerta();
   miPuerta.imprimir();
   cout << "---------------------------------" << endl;
-  miPuerta.getVentanilla().getEstado();
-  miPuerta.getVentanilla().abrirVentana();
-  miPuerta.getVentanilla().getEstado();
   miPuerta.getVentanilla().imprimir();
+  miPuerta.getVentanilla().abrirVentana();
+  miPuerta.getVentanilla().imprimir();
+  miPuerta.getVentanilla().cerrarVentana();
+  miPuerta.getVentanilla().imprimir();
+  cout << "---------------------------------" << endl;
+  Coche miCoche;
+  miCoche.abrirCoche();
+  miCoche.getMotor().arrancar();
+  miCoche.getPuertaDer().abrirPuerta();
+  miCoche.getPuertaDer().getVentanilla().abrirVentana();
+  miCoche.imprimir();
   return 0;
 }
