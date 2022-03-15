@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// CONCEPTO: Herencia por composición o agragación. 
+// CONCEPTO: Herencia por composición o agragación.
 
 class Motor{
   private:
@@ -12,9 +12,15 @@ class Motor{
       this->estado = estado;
     }
   public:
+    // Constructor
     Motor(){
       this->estado = false; // Apagado
     }
+    // Destructor
+    ~Motor(){
+      cout << "Pasamos por el destructor de motor." << endl;
+    }
+
     bool getEstado (){
       return this->estado;
     }
@@ -44,6 +50,9 @@ class Ventana{
   public:
     Ventana(){
       this->estado = false; // Esta cerrada.
+    }
+    ~Ventana(){
+      cout << "Pasamos por el destructor de ventana." << endl;
     }
     bool getEstado (){
       return this->estado;
@@ -75,6 +84,9 @@ class Puerta{
   public:
     Puerta(){
       this->estado = false;
+    }
+    ~Puerta(){
+      cout << "Pasamos por el destructor de puerta." << endl;
     }
     bool getEstado (){
       return this->estado;
@@ -151,6 +163,7 @@ int main(){
   miMotor.imprimir();
   miMotor.apagar();
   miMotor.imprimir();
+  delete & miMotor;
   cout << "---------------------------------" << endl;
   Ventana miVentana;
   miVentana.imprimir();
