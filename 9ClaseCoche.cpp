@@ -91,6 +91,12 @@ class Puerta{
     bool getEstado (){
       return this->estado;
     }
+    /*
+    // Con punteros en vez de por referencia:
+    Ventana* getVentanilla(){
+      return &(this->ventanilla);
+    }
+    */
     Ventana & getVentanilla(){
       return this->ventanilla;
     }
@@ -179,6 +185,10 @@ int main(){
   miPuerta.cerrarPuerta();
   miPuerta.imprimir();
   cout << "---------------------------------" << endl;
+  /*  -> acceder a métodos a través de un puntero al objeto al que pertenecen.
+      .  acceder a métodos a través del objeto al que pertenecen */
+  // Con punteros:
+  // miPuerta.getVentanilla()->imprimir();
   miPuerta.getVentanilla().imprimir();
   miPuerta.getVentanilla().abrirVentana();
   miPuerta.getVentanilla().imprimir();
