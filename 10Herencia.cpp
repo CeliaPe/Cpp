@@ -6,12 +6,12 @@ class Persona{
     string nombre;
     string dni;
   public:
-    Persona(string nombre = "Celia", string dni = "12345678H"){
+    Persona(string nombre = "nombrePer", string dni = "dniPer"){
         this->nombre = nombre;
         this->dni = dni;
     }
     ~Persona(){
-      cout << "¡Adios!" << endl;
+      cout << "Adios!" << endl;
     }
 
     void imprimir(){
@@ -31,24 +31,45 @@ class Persona{
       return this->dni;
     }
 };
-
+/*
+Cuando definimos atributos y métodos:
+  Public    : Se puede acceder desde cualquier clase.
+  Protected : Solo accesible desde la clase y sus descendientes.
+  Private   : Solo accesible desde la clase donde se define.
+*/
+/*
+Cuando definimos la herencia de una clase:
+  Public:
+      private   : No podemos acceder.
+      protected : Protegido.
+      public    : Publico.
+  Protected:
+      private   : No podemos acceder.
+      protected : Protegido.
+      public    : Protegido.
+  Privada:
+      private   : No podemos acceder.
+      protected : Privado.
+      public    : Privado.
+*/
 class Alumno : public Persona{
   private:
-    string clase;
+    string grado;
     int curso;
   public:
-    Alumno (string clase = "DAW", int curso = 1){
-      this->clase = clase;
+    Alumno (string nombre = "nombreAlum", string dni = "dniAlum",
+            string grado = "gradoAlum", int curso = 1) : Persona (nombre,dni){
+      this->grado = grado;
       this->curso = curso;
     }
-    void setClase(string clase){
-      this->clase = clase;
+    void setClase(string grado){
+      this->grado = grado;
     }
     void setCurso(int curso){
       this->curso = curso;
     }
     string getClase(){
-      return this->clase;
+      return this->grado;
     }
     int getCurso(){
       return this->curso;
@@ -57,15 +78,22 @@ class Alumno : public Persona{
     void imprimir(){
       // No podemos llamar al imprimir del padre, porque estamos especializando
       // la función ahora: this->imprimir();
-      cout << "Me llamo " << this->getNombre() << " y mi DNI es " << this->getDni() << "." << endl;
-      cout << "Estoy en el grado de " << this->clase << " y estoy en " << this->curso << "º curso." << endl;
+      Persona::imprimir();
+      // cout << "Me llamo " << this->getNombre() << " y mi DNI es " << this->getDni() << "." << endl;
+      cout << "Estoy en el grado de " << this->grado << " y estoy en el curso "
+           << this->curso << "." << endl;
     }
 };
 
 int main(){
   //Persona miPersona;
-  Alumno miAlumno;
+  Alumno alumnoDef;
+  Alumno miAlumno("miNombre","miDni","miGrado",2);
+  Alumno* ptrAlumno;
   //miPersona.imprimir();
+  ptrAlumno = new Alumno("ptrNombre","ptrDni","ptrGrado",9);
+  alumnoDef.imprimir();
   miAlumno.imprimir();
+  ptrAlumno->imprimir();
   return 0;
 }
