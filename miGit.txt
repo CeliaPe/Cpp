@@ -7,3 +7,7 @@
     - ...
 3. Ver el estado del repositorio.
     - git status.
+4. Para preparar los documentos modificados:
+    - git add "nombreArchivo"
+5. Para hacer commit:
+    - git commit -m "cometario"
