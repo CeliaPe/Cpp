@@ -4,4 +4,6 @@
 2.2. Clonar un repositorio.
     - git clone "url"
 2.3. Si nos encontrarnos en el repositorio.
-    - ... 
+    - ...
+3. Ver el estado del repositorio.
+    - git status.
