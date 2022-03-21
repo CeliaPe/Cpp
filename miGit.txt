@@ -1,0 +1,7 @@
+1. Entramos en la carpeta.
+2.1. Creamos repositorio.
+    - git init
+2.2. Clonar un repositorio.
+    - git clone "url"
+2.3. Si nos encontrarnos en el repositorio.
+    - ... 
