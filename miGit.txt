@@ -21,3 +21,10 @@ OJO: Para generar el token ir a Settings/Developer_settings/Personal_access_toke
       git push -u origin "rama"
   6.2. Está especificada la url:
     - git push
+7. Para ver el resgistro de commits:
+  7.1. Vemos los commits (para salir q)
+    - git log
+  7.2. Commits + detalle:
+    - git log -p
+  7.3. Ver el último resgistro:
+    - git log -1
