@@ -1,3 +1,6 @@
+OJO: Para cambiar el usuario de un pc ir a credenciales.
+OJO: Para generar el token ir a Settings/Developer_settings/Personal_access_tokens
+
 1. Entramos en la carpeta.
 2.1. Creamos repositorio.
     - git init
@@ -11,4 +14,10 @@
     - git add "nombreArchivo"
 5. Para hacer commit:
     - git commit -m "cometario"
-    
+6. Para subir a github:
+  6.1. No está especificada la url (primera vez):
+    - git push "url"
+    - git remote -u origin "url"
+      git push -u origin "rama"
+  6.2. Está especificada la url:
+    - git push
