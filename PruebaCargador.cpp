@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 /*
@@ -29,7 +30,7 @@ class Cable{
       this->datos = datos;
     }
     ~Cable (){
-      cout << "... destruye un cable ..." << endl;
+      //cout << "... destruye un cable ..." << endl;
     }
     double getLongitud(){
       return this->longitud;
@@ -58,7 +59,7 @@ class Cable{
 
     void imprimir(){
       cout << "El cable mide " << this->longitud << ", su tipo de entrada es "
-           << this->tipoEntrada << ", su tipo de salida es " << this->tipoSalida;
+           << this->tipoEntrada << ", su tipo de salida es " << this->tipoSalida << endl;
       if (datos) cout << " y permite la transmisión de datos." << endl;
     }
 };
@@ -76,7 +77,7 @@ class Adaptador{
       this->numPuertos = numPuertos;
     }
     ~Adaptador (){
-      cout << "... destruye un adaptador ..." << endl;
+      //cout << "... destruye un adaptador ..." << endl;
     }
     double getPotenciaEntrada(){
       return this->potenciaEntrada;
@@ -105,6 +106,55 @@ class Adaptador{
     }
 };
 
+class Cargador{
+	private:
+		vector<Cable> cables; 
+		Adaptador adaptador;	
+	public:
+		Cargador(int numCables = 1){
+			Cable cable;
+			for (int i = 0 ; i < numCables ; i ++){
+				cables.push_back (cable);
+			}
+		}
+		Cargador(Adaptador adaptador, Cable cable){
+			this->cables.push_back (cable);
+			this->adaptador = adaptador;
+		}
+		~Cargador(){
+			//cout << "... destruye el cargador ..." << endl;
+		}
+		Cable & getCable (int pos){
+			return this->cables.at(pos);
+		}
+		Adaptador & getAdaptador(){
+			return this->adaptador;
+		}
+		void aniadirCable(Cable cable){
+			if (cables.size()<3) this->cables.push_back(cable);
+		}
+		void imprimir(){
+			cout << "El cargador tiene las siguientes características: " << endl;
+			this->adaptador.imprimir();
+			cout << "El cargador tiene " << cables.size()<< " cables" << endl;
+			for (int i = 0 ; i < cables.size() ; i++ ){
+				this->cables[i].imprimir();
+			}
+			
+		}
+		
+};
+
 int main(){
   cout << "Celia Pedregosa" << endl;
+  Cable cable;
+  cable.imprimir();
+  cout << "-----------------" << endl;
+  Adaptador adaptador;
+  adaptador.imprimir();
+  cout << "-----------------" << endl;
+  Cargador cargador;
+  cargador.aniadirCable(cable);
+  cargador.aniadirCable(cable);
+  cargador.imprimir();
 }
