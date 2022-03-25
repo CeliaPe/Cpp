@@ -46,3 +46,5 @@ OJO: Para generar el token ir a Settings/Developer_settings/Personal_access_toke
       - git branch -D "nombre" // Fuerza la eliminación
   9.5. Cambiar de rama:
       - git checkout "nombreRama"
+  9.6. Pushear a github una rama:
+      - git push "url repositorio del que vamos a crear la rama"
