@@ -12,8 +12,12 @@ OJO: Para generar el token ir a Settings/Developer_settings/Personal_access_toke
     - git status.
 4. Para preparar los documentos modificados:
     - git add "nombreArchivo"
+  4.1. Para preparar todos los documentos modificados:
+      - git add .
 5. Para hacer commit:
     - git commit -m "cometario"
+  5.1. Para hacer commit sin pasar por "add":
+      - git commit -a -m "comentario"
 6. Para subir a github:
   6.1. No está especificada la url (primera vez):
     - git push "url"
@@ -28,3 +32,17 @@ OJO: Para generar el token ir a Settings/Developer_settings/Personal_access_toke
     - git log -p
   7.3. Ver el último resgistro:
     - git log -1
+8. Detalle de las modificaciones:
+    - git diff
+9. Ramas:
+  9.1. Mostrar ramas:
+      - git branch
+  9.2. Crear rama:
+      - git branch "nombre"
+  9.3. Renombrar rama:
+      - git branch -m "nombre"
+  9.4. Eliminar rama (no puedo eliminar una rama desde esa rama)
+      - git branch -d "nombre" // Une la rama "nombre" con la master.
+      - git branch -D "nombre" // Fuerza la eliminación
+  9.5. Cambiar de rama:
+      - git checkout "nombreRama"
