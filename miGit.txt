@@ -48,3 +48,10 @@ OJO: Para generar el token ir a Settings/Developer_settings/Personal_access_toke
       - git checkout "nombreRama"
   9.6. Pushear a github una rama:
       - git push "url repositorio del que vamos a crear la rama"
+10. Unir ramas:
+  10.1. Si solo se han hecho modificaciones en la rama "hijo" pondemos usar:
+      - git merge "rama destino"
+  10.2. Si se han hecho modificaciones tanto en la rama "padre" como "hijo"
+        copiamos la info de la modificación del "hijo" en el "padre" y después
+        elimina el hijo:
+     - git fetch "url de la rama que queremos copiar en la actual"
