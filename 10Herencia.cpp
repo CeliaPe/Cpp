@@ -3,9 +3,12 @@ using namespace std;
 
 class Persona{
   private:
-    string nombre;
     string dni;
+  protected:
+    string nombre;
   public:
+    int codigo = 5; // Ta' feo, pero es para probar.
+
     Persona(string nombre = "nombrePer", string dni = "dniPer"){
         this->nombre = nombre;
         this->dni = dni;
@@ -93,6 +96,8 @@ class Alumno : public Persona{
     void probandoHerencia(){
       cout << "Si estoy en una herencia public: " << endl;
       //cout << "Llamo a algo privado: " << this->dni << endl;
+      cout << "Llamo a algo protegido: " << this->nombre << endl;
+      cout << "Llamo a algo publico: " << this->codigo << endl;
       cout << "Llamo a algo publico: " << this->getDni() << endl;
     }
 };
@@ -118,11 +123,13 @@ class Profesor : private Persona{
       Persona::imprimir();
       // cout << "Me llamo " << this->getNombre() << " y mi DNI es " <<
       // this->getDni() << "." << endl;
-      cout << "Mi sueldo es de " << this->sueldo << "euros." << endl;
+      cout << "Mi sueldo es de " << this->sueldo << " euros." << endl;
     }
     void probandoHerencia(){
       cout << "Si estoy en una herencia public: " << endl;
       //cout << "Llamo a algo privado: " << this->dni << endl;
+      cout << "Llamo a algo protegido: " << this->nombre << endl;
+      cout << "Llamo a algo publico: " << this->codigo << endl;
       cout << "Llamo a algo publico: " << this->getDni() << endl;
     }
 };
@@ -137,8 +144,13 @@ int main(){
   miAlumno.imprimir();
   ptrAlumno->imprimir();
   profDef.imprimir();
-  cout << alumnoDef.getDni();
+  cout << alumnoDef.getDni() << endl;
   // cout << profDef.getDni();  // Da error porque la herencia a tranformado una
                                 // función que era pública a privada...*/
+  // cout << alumnoDef.nombre;  // Da error porque el dato protegido solo puede
+                                // leerse desde clases hijas...*/
+  // cout << profDef.nombre;    // Da error porque el dato protegido solo puede
+                                // leerse desde clases hijas...*/
+ cout << alumnoDef.codigo << endl; // Funciona porque está
   return 0;
 }
